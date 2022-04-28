@@ -2,7 +2,7 @@ from ursina import *
 
 
 class add_obj(Button):
-    def __init__(self, Origin: float=0.6, Texture: str='', Position:tuple = (5, 2, 5), Model: str = 'cube', Color=color.red, **kwargs):
+    def __init__(self, Origin: float=0.6, Texture: str='', Position:tuple = (5, 2, 5), Model: str = 'cube', Color='', **kwargs):
         super().__init__(
             parent=scene,
             position=Position,
@@ -29,6 +29,22 @@ class add_obj(Button):
                 self.origin_z -= 1
             if key == 'k':
                 self.origin_z += 1
+            if key == 'o':
+                self.rotation_x -= 1
+            if key == 'm':
+                self.rotation_x += 1
+            if key == 'p':
+                self.rotation_y -= 1
+            if key == 'l':
+                self.rotation_y += 1
+            if key == 'c':
+                self.scale_x -= 0.1
+            if key == 'v':
+                self.scale_x += 0.1
+            if key == 'z':
+                self.scale_y -= 0.1
+            if key == 'x':
+                self.scale_y += 0.1
 
 
 class add_2dobj(add_obj):
@@ -45,3 +61,21 @@ class add_2dobj(add_obj):
                 self.origin_y += 1
             if key == 'y':
                 self.origin_y -= 1
+            if key == 'k':
+                self.origin_z += 1
+            if key == 'o':
+                self.rotation_x -= 1
+            if key == 'm':
+                self.rotation_x += 1
+            if key == 'p':
+                self.rotation_y -= 1
+            if key == 'l':
+                self.rotation_y += 1
+            if key == 'c':
+                self.scale_x -= 0.1
+            if key == 'v':
+                self.scale_x += 0.1
+            if key == 'z':
+                self.scale_y -= 0.1
+            if key == 'x':
+                self.scale_y += 0.1
