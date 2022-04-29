@@ -1,5 +1,6 @@
-from NewProject.NewProject import *
+from New import *
 import os
+import sys
 
 def Newproject_gui():
     app = QtWidgets.QApplication(sys.argv)
@@ -9,5 +10,8 @@ def Newproject_gui():
     window.show()
     sys.exit(app.exec_())
 
-def Newproject():
-    os.system('Newproject/Newproject.sh')
+def Newproject(project):
+    os.system(f'bash  NewProject/NewProject.sh {project}')
+
+
+Newproject(sys.argv[1])
