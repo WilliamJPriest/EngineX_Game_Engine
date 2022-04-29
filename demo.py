@@ -7,4 +7,3 @@ e.Win()
 
 obj.add_obj(Model='freeModels/model/scene.gltf')
 Editor_window.win.run()
-
