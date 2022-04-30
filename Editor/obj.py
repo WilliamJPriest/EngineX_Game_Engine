@@ -1,5 +1,6 @@
 from ursina import *
-
+from Editor.gui.input import *
+import sys
 
 class add_obj(Button):
     def __init__(self, Origin: float=0.6, Texture: str='', Position:tuple = (5, 2, 5), Model: str = 'cube', Color='', **kwargs):
@@ -14,7 +15,7 @@ class add_obj(Button):
 
     def input(self, key):
         if self.hovered:
-            b = Text(scale=2, text=f'{self.get_position()}')
+            b = Text(scale=1, text=f'{self.get_position()} {self.scale}')
             b.fade_out()
             print(self.get_position())
             if key == 'g':
@@ -45,7 +46,13 @@ class add_obj(Button):
                 self.scale_y -= 0.1
             if key == 'x':
                 self.scale_y += 0.1
+            if key == ']':
+                pos = input(':')
+                self.position = tuple([int(i) for i in pos])
 
+
+
+            
 
 class add_2dobj(add_obj):
     def input(self, key):
