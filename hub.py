@@ -48,6 +48,7 @@ class Ui_MainWindow(object):
 
     def on_click(self):
             os.system(f"python3 NewProject {self.lineEdit.text()}")
+            os.system(f'python3 {self.lineEdit.text()}.py')
 
 
 if __name__ == "__main__":
