@@ -1,3 +1,4 @@
+from subprocess import check_output
 from New import *
 import os
 import sys
@@ -8,10 +9,13 @@ def Newproject_gui():
     demo = LoadingGif()
     demo.mainUI(window)
     window.show()
-    sys.exit(app.exec_())
+    sys.exit(sys.argv[1] in check_output(['ls']).decode())
+    
 
 def Newproject(project):
     os.system(f'bash  NewProject/NewProject.sh {project}')
 
+
+#print(check_output(['ls']).decode())
 
 Newproject(sys.argv[1])
