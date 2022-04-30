@@ -7,8 +7,8 @@ win = Ursina()
 
 class Window:
     def Win(self):
-        for x in range(10):
-            for z in range(10):
+        for x in range(20):
+            for z in range(20):
                 Entity(
                     model='cube', 
                     color=color.dark_gray, 
