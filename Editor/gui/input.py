@@ -1,6 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-val = ''
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -29,7 +28,7 @@ class Ui_MainWindow(object):
 
     def on_click(self):
         val = self.lineEdit.text()
-        sys.exit(app.exec_())
+        
         
 
 
