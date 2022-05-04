@@ -1,6 +1,5 @@
 from ursina import *
 from Editor.gui.input import *
-import sys
 
 class add_obj(Button):
     def __init__(self, Origin: float=0.6, Texture: str='', Position:tuple = (5, 2, 5), Model: str = 'cube', Color='', **kwargs):
@@ -24,6 +23,10 @@ class add_obj(Button):
                 self.origin_x -= 1
             if key == 'b':
                 self.origin_y += 1
+            if key == 'delete':
+                self.disable()
+                
+
             if key == 'y':
                 self.origin_y -= 1
             if key == 'j':
