@@ -1,31 +1,25 @@
-from Editor import obj, Editor_window
-import multiprocessing
 import dearpygui.dearpygui as dpg
 
+class Main_WIN:
+    def Create_obj(self):
+        with dpg.window(label="Create object", height=300, width=300, pos=(100,0)):
+            dpg.add_text("")
+            dpg.add_input_text(label="Model", default_value="cube", tag='model')
+            dpg.add_button(label="Create", callback=self.val)
 
-def testgui():
-    dpg.create_context()
-    dpg.create_viewport(title='Custom Title', width=600, height=300)
+    def run(self):
+        dpg.create_context()
+        with dpg.window(label="EngineX", height=600, width=600):
+            dpg.add_slider_float(label="Ground", default_value=1, max_value=100)
+            dpg.add_text("")
+            dpg.add_button(label='new object', callback=self.Create_obj)
 
-    with dpg.window(label="Example Window"):
-        
-        
-        dpg.add_text("Hello, world")
-        dpg.add_button(label="Save")
-    
+        dpg.create_viewport(title='Custom Title', width=600, height=600)
+        dpg.setup_dearpygui()
+        dpg.show_viewport()
+        dpg.start_dearpygui()
+        dpg.destroy_context()
 
-        dpg.add_input_text(label="string", default_value="Quick brown fox")
-        dpg.add_slider_float(label="float", default_value=0.273, max_value=1)
+Main_WIN().run()
 
-    dpg.setup_dearpygui()
-    dpg.show_viewport()
-    dpg.start_dearpygui()
-    dpg.destroy_context()
 
-def test():
-    e = Editor_window.Window()
-    e.Win()
-    obj.add_obj(Model='freeModels/model/scene.gltf')
-    Editor_window.win.run()
-
-test()
