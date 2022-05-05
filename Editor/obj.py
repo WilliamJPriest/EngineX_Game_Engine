@@ -1,5 +1,5 @@
 from ursina import *
-from Editor.gui.input import *
+from Editor.ui.input import *
 
 class add_obj(Button):
     def __init__(self, Origin: float=0.6, Texture: str='', Position:tuple = (5, 2, 5), Model: str = 'cube', Color='', **kwargs):
