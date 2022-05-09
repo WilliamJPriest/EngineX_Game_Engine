@@ -1,15 +1,15 @@
-from turtle import pos
 import dearpygui.dearpygui as dpg
-from pygame import Color
+from Editor.ui.vs import *
 
-
-class Main:
+class Main(Object):
     def __init__(self, obj):
         self.obj = obj
 
-    def Create_obj(self):
+    objects = {}
 
+    def Create_obj(self):
         def create():
+            self.objects[dpg.get_value('name')] = {'model':dpg.get_value('model'), 'color':dpg.get_value('color'),'pos':tuple(int(i) for i in dpg.get_value('pos'))} 
             self.obj.add_obj(Model=dpg.get_value('model'), 
             Position=tuple(int(i) for i in dpg.get_value('pos')), 
             Color=dpg.get_value('color'))
@@ -23,13 +23,23 @@ class Main:
             dpg.add_text("")
             dpg.add_button(label="Create", callback=create)
 
-    def objects(self):
-        ''
+    def Objects(self):
+        with dpg.window(label="Objects", height=500, width=200, pos=(100,0)):
+            for k, v in self.objects.items():
+                dpg.add_text(k)
+                model = v['model']
+                color = v['color']
+                pos = v['pos']
+                with dpg.popup(dpg.last_item(), mousebutton=dpg.mvMouseButton_Left, modal=True, tag="modal_id"):
+                    dpg.add_text(f'model: {model} \ncolor: {color}\npos: {pos}')
+                    dpg.add_text("")
+                    dpg.add_button(label="Close", callback=lambda: dpg.configure_item("modal_id", show=False))
         
 
     def btns(self):
         dpg.add_button(label='new object', callback=self.Create_obj, width=200, height=55)
-        dpg.add_button(label='objects', callback=self.objects, width=200, height=55)
+        dpg.add_button(label='objects', callback=self.Objects, width=200, height=55)
+        dpg.add_button(label='edit objects', callback=self.object, width=200, height=55)
 
     def run_main(self):
         dpg.create_context()
