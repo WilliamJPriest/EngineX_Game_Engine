@@ -2,6 +2,7 @@ from ursina import *
 import dearpygui.dearpygui as dpg
 from Editor import obj
 from Editor.ui.main import *
+import threading
 
 
 
@@ -12,7 +13,8 @@ class TwoD(Button, Main):
 
     def input(self, key):
         if key == 'm':
-            self.run_main()
+            run_main = threading.Thread(target=self.run_main)
+            run_main.start()
         if key == 'd':
             camera.rotation_y += 1
         if key == 'a':
