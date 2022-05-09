@@ -1,8 +1,9 @@
 from ursina import *
 from Editor.ui.input import *
+from Editor.ui.vs import *
 
-class add_obj(Button):
-    def __init__(self, Origin: float=0.6, Texture: str='', Position:tuple = (5, 2, 5), Model: str = 'cube', Color='', **kwargs):
+class add_obj(Button, Object):
+    def __init__(self, Origin: float=0.6, Texture: str='', Position:tuple = (5, 2, 5), Model: str = 'cube', Color='red', **kwargs):
         super().__init__(
             parent=scene,
             position=Position,
@@ -25,7 +26,16 @@ class add_obj(Button):
                 self.origin_y += 1
             if key == 'delete':
                 self.disable()
-                
+            if key == 'e':
+                dpg.create_context()
+                with dpg.window(label="EngineX", height=600, width=600):
+                    dpg.add_text("")
+                    self.object()
+                dpg.create_viewport(title='EngineX', width=800, height=800)
+                dpg.setup_dearpygui()
+                dpg.show_viewport()
+                dpg.start_dearpygui()
+                dpg.destroy_context()
 
             if key == 'y':
                 self.origin_y -= 1
