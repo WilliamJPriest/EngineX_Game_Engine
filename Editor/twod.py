@@ -3,7 +3,7 @@ import dearpygui.dearpygui as dpg
 from Editor import obj
 from Editor.ui.main import *
 import threading
-
+from ursina.prefabs.first_person_controller import FirstPersonController
 
 
 class TwoD(Button, Main):
@@ -23,3 +23,7 @@ class TwoD(Button, Main):
             camera.rotation_x += 1
         if key == 'w':
             camera.rotation_x -= 1
+        if key == 'f':
+            FirstPersonController()
+        if key == 'e':
+            FirstPersonController().disable()
