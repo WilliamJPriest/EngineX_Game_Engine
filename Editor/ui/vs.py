@@ -20,3 +20,13 @@ class Object:
                     with dpg.node_attribute(label="Animation"):
                         dpg.add_input_text(tag='animation')
                         
+    def run_vs(self):
+        dpg.create_context()
+        with dpg.window(label="EngineX", height=600, width=600):
+            dpg.add_text("")
+            self.object()
+        dpg.create_viewport(title='EngineX', width=800, height=800)
+        dpg.setup_dearpygui()
+        dpg.show_viewport()
+        dpg.start_dearpygui()
+        dpg.destroy_context()
