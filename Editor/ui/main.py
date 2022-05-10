@@ -40,6 +40,7 @@ class Main(Object):
         dpg.add_button(label='new object', callback=self.Create_obj, width=200, height=55)
         dpg.add_button(label='objects', callback=self.Objects, width=200, height=55)
         dpg.add_button(label='edit objects', callback=self.object, width=200, height=55)
+        dpg.add_button(label='exit', callback=exit, width=200, height=55)
 
     def run_main(self):
         dpg.create_context()
