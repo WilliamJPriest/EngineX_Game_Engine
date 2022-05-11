@@ -16,13 +16,13 @@ class TwoD(Button, Main):
             run_main = threading.Thread(target=self.run_main)
             run_main.start()
         if key == 'd':
-            camera.rotation_y += 1
+            camera.rotation_y += 5
         if key == 'a':
-            camera.rotation_y -= 1
+            camera.rotation_y -= 5
         if key == 's':
-            camera.rotation_x += 1
+            camera.rotation_x += 5
         if key == 'w':
-            camera.rotation_x -= 1
+            camera.rotation_x -= 5
         if key == 'f':
             FirstPersonController()
         if key == 'e':
