@@ -18,7 +18,7 @@ class add_obj(Button, Object):
         if self.hovered:
             b = Text(scale=1, text=f'{self.get_position()} {self.scale}')
             b.fade_out()
-            print(self.get_position())
+            self.key = key
             if key == 'g':
                 self.origin_x += 1
             if key == 'h':
