@@ -16,7 +16,7 @@ python3 hub
 
 ![EngineX_1](https://user-images.githubusercontent.com/86805843/167671684-8874af64-5540-4b41-9587-262f9376892c.png)
 
-# visual scripting
+# Visual Scripting
 
 ![EngineX_vs](https://user-images.githubusercontent.com/86805843/168089482-b7997aeb-c324-4d96-a955-c9541f285bd2.png)
 ![EngineX_vs1](https://user-images.githubusercontent.com/86805843/168089548-b109d168-b7cc-4293-93b7-90645fafbb8f.png)
