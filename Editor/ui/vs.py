@@ -17,13 +17,13 @@ class Object:
                         pass
                 return tuple(lst)
             dpg.add_node_link(app_data[0], app_data[1], parent=sender)
-            while True:
+            while self.key != 'q':
                 if self.key == dpg.get_value('onclick'):
                     self.model = dpg.get_value('model')
                     self.position = to_tuple(dpg.get_value('position'))
                     self.color = dpg.get_value('color')
                     self.scale = to_tuple(dpg.get_value('scale'))
-                    break
+                    
 
         def delink_callback(sender, app_data):
             dpg.delete_item(app_data)
