@@ -40,7 +40,7 @@ class Object:
                         dpg.add_input_text(label='Scale', width=150, default_value=self.scale, tag='scale')
 
 
-                with dpg.node(label="On Click", pos=(300, 0)):
+                with dpg.node(label="OnClick", pos=(300, 0)):
                     with dpg.node_attribute(label="Node A1", attribute_type=dpg.mvNode_Attr_Output):
                         dpg.add_input_text(label="onClick", width=50, tag='onclick')
                         
