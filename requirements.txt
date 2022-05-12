@@ -1,0 +1,11 @@
+dearpygui==1.6.2
+Panda3D==1.10.11
+panda3d-gltf==0.13
+panda3d-simplepbr==0.10
+Pillow==9.1.0
+pyperclip==1.8.2
+PyQt5==5.15.6
+PyQt5-Qt5==5.15.2
+PyQt5-sip==12.10.1
+screeninfo==0.8
+ursina==4.1.1
