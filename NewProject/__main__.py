@@ -15,7 +15,4 @@ def Newproject_gui():
 def Newproject(project):
     os.system(f'bash  NewProject/NewProject.sh {project}')
 
-
-#print(check_output(['ls']).decode())
-
 Newproject(sys.argv[1])
