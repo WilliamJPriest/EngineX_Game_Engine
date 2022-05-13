@@ -1,7 +1,7 @@
 from ursina import *
 import dearpygui.dearpygui as dpg
 from Editor import obj
-from Editor.ui.main import *
+from Editor.gui.main import *
 import threading
 from ursina.prefabs.first_person_controller import FirstPersonController
 
