@@ -1,4 +1,4 @@
-# getting started
+# Getting started
 ```
 chmod +x EngineX.sh
 ./EngineX.sh
