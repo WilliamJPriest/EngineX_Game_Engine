@@ -1,7 +1,8 @@
-# EngineX
-
-2d & 3d Engine
-
+# getting started
+```
+chmod +x EngineX.sh
+./EngineX.sh
+```
 ```
 python3 hub
 ```
