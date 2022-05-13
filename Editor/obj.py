@@ -1,6 +1,6 @@
 from ursina import *
-from Editor.ui.input import *
-from Editor.ui.vs import *
+from Editor.gui.input import *
+from Editor.gui.vs import *
 import threading
 
 class add_obj(Button, Object):
