@@ -17,6 +17,7 @@ class Object:
                         pass
                 return tuple(lst)
             dpg.add_node_link(app_data[0], app_data[1], parent=sender)
+
             while self.key != 'q':
                 if self.key == dpg.get_value('onclick'):
                     self.model = dpg.get_value('model')
@@ -28,7 +29,7 @@ class Object:
         def delink_callback(sender, app_data):
             dpg.delete_item(app_data)
 
-        with dpg.window(label="Object", width=1000, height=500):
+        with dpg.window(label=f"Object {self.model}", width=1000, height=500):
             dpg.add_button(label='create')
             
             with dpg.node_editor(callback=link_callback, delink_callback=delink_callback):
@@ -38,8 +39,6 @@ class Object:
                         dpg.add_input_text(label='Color', width=150, default_value=self.color, tag='color')
                         dpg.add_input_text(label='Position', width=150, default_value=self.position, tag='position')
                         dpg.add_input_text(label='Scale', width=150, default_value=self.scale, tag='scale')
-
-
                 with dpg.node(label="OnClick", pos=(300, 0)):
                     with dpg.node_attribute(label="Node A1", attribute_type=dpg.mvNode_Attr_Output):
                         dpg.add_input_text(label="onClick", width=50, tag='onclick')
