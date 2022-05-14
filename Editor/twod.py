@@ -23,7 +23,7 @@ class TwoD(Button, Main):
             camera.rotation_x += 5
         if key == 'w':
             camera.rotation_x -= 5
-        if key == 'f':
+        if key == '3':
             FirstPersonController()
-        if key == 'e':
+        if key == '2':
             FirstPersonController().disable()
