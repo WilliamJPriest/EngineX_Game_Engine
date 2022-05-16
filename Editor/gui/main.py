@@ -16,8 +16,8 @@ class Main(Object):
             
         with dpg.window(label="Create object", height=500, width=500, pos=(100,0)):
             dpg.add_text("")
-            dpg.add_input_text(label="Name", default_value="A10", tag='name')
-            dpg.add_input_text(label="Model", default_value="freeModels/model/scene.gltf", tag='model')
+            dpg.add_input_text(label="Name", default_value="New Object", tag='name')
+            dpg.add_input_text(label="Model", default_value="cube", tag='model')
             dpg.add_input_text(label="Position", default_value="525", tag='pos')
             dpg.add_input_text(label="Color", tag='color')
             dpg.add_text("")
