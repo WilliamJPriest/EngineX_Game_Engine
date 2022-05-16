@@ -1,5 +1,4 @@
 from ursina import *
-from Editor.gui.input import *
 from Editor.gui.vs import *
 from Editor.gui.obj_keys import *
 
