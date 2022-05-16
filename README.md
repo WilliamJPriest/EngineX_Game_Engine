@@ -11,6 +11,10 @@ python3 hub
 
 # Add a model
 
+```
+click 1
+```
+
 ![EngineX](https://user-images.githubusercontent.com/86805843/167671654-bf48c1e8-d42e-49d6-86ce-d312320c86f1.png)
 
 ![EngineX_3](https://user-images.githubusercontent.com/86805843/167672850-3d270cf6-b186-4b2b-8f06-0d4b16163d33.png)
