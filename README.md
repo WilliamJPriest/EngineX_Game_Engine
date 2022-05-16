@@ -12,7 +12,7 @@ python3 hub
 # Add a model
 
 ```
-press m
+press m and click on new object
 ```
 
 ![EngineX](https://user-images.githubusercontent.com/86805843/167671654-bf48c1e8-d42e-49d6-86ce-d312320c86f1.png)
