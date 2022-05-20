@@ -11,6 +11,10 @@ python3 hub
 
 # Add a model
 
+```
+press m and click on new object
+```
+
 ![EngineX](https://user-images.githubusercontent.com/86805843/167671654-bf48c1e8-d42e-49d6-86ce-d312320c86f1.png)
 
 ![EngineX_3](https://user-images.githubusercontent.com/86805843/167672850-3d270cf6-b186-4b2b-8f06-0d4b16163d33.png)
@@ -26,5 +30,8 @@ python3 hub
 # Visual Scripting
 
 ![EngineX_vs](https://user-images.githubusercontent.com/86805843/168089482-b7997aeb-c324-4d96-a955-c9541f285bd2.png)
+```
+click on the object and press 1
+```
 ![EngineX_vs1](https://user-images.githubusercontent.com/86805843/168089548-b109d168-b7cc-4293-93b7-90645fafbb8f.png)
 ![EngineX_vs2](https://user-images.githubusercontent.com/86805843/168089575-2364c41d-f43a-4397-8c3f-6240cc93546e.png)

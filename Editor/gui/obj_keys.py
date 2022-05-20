@@ -5,8 +5,6 @@ class Keys:
         if key == '1':
             run_vs = threading.Thread(target=self.run_vs)
             run_vs.start()
-        if key == '2':
-            pass
         
     def Mov_Keys(self, key):
         if key == 'g':
