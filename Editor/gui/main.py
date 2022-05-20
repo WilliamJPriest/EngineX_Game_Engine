@@ -33,12 +33,19 @@ class Main(Object):
                 with dpg.popup(dpg.last_item(), mousebutton=dpg.mvMouseButton_Left, modal=True, tag="modal_id"):
                     dpg.add_text(f'model: {model} \ncolor: {color}\npos: {pos}')
                     dpg.add_text("")
-                    dpg.add_button(label="Close", callback=lambda: dpg.configure_item("modal_id", show=False))
-        
+    def run(self):
+        ''
+
+    def add_camera(self):
+        self.obj.add_obj(Model='camera/model/scene.gltf', 
+            Position=(5, 2, 5))
 
     def btns(self):
+        dpg.add_button(label='run', callback=self.run, width=200, height=55)
         dpg.add_button(label='new object', callback=self.Create_obj, width=200, height=55)
+        dpg.add_button(label='camera', callback=self.add_camera, width=200, height=55)
         dpg.add_button(label='objects', callback=self.Objects, width=200, height=55)
+        
 
     def run_main(self):
         dpg.create_context()
