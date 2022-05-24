@@ -1,7 +1,9 @@
 import dearpygui.dearpygui as dpg
 from Editor.gui.vs import *
+from Editor.gui.error_window import *
+from ursina.prefabs.first_person_controller import FirstPersonController
 
-class Main(Object):
+class Main:
     def __init__(self, obj):
         self.obj = obj
 
@@ -33,15 +35,21 @@ class Main(Object):
                 with dpg.popup(dpg.last_item(), mousebutton=dpg.mvMouseButton_Left, modal=True, tag="modal_id"):
                     dpg.add_text(f'model: {model} \ncolor: {color}\npos: {pos}')
                     dpg.add_text("")
-    def run(self):
-        ''
+    def Run(self):
+        try:
+            self.position = self.cam.position
+            self.rotation = self.cam.rotation
+            self.scale = self.cam.scale
+        except Exception as e:
+            Error_Window_Tk().err_win_tk(e)
+        
 
     def add_camera(self):
-        self.obj.add_obj(Model='camera/model/scene.gltf', 
+        self.cam = self.obj.add_obj(Model='camera/model/scene.gltf', 
             Position=(5, 2, 5))
 
     def btns(self):
-        dpg.add_button(label='run', callback=self.run, width=200, height=55)
+        dpg.add_button(label='run', callback=self.Run, width=200, height=55)
         dpg.add_button(label='new object', callback=self.Create_obj, width=200, height=55)
         dpg.add_button(label='camera', callback=self.add_camera, width=200, height=55)
         dpg.add_button(label='objects', callback=self.Objects, width=200, height=55)
