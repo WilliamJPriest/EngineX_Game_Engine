@@ -7,6 +7,7 @@ class Main:
     def __init__(self, obj):
         self.obj = obj
 
+        
     objects = {}
 
     def Create_obj(self):
