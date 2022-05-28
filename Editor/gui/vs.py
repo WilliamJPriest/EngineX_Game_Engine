@@ -49,10 +49,6 @@ class Object(Error_Window):
                 with dpg.node_attribute(label="Node A1", attribute_type=dpg.mvNode_Attr_Output):
                     dpg.add_input_text(label="onClick", width=50, default_value=onclick, tag='onclick')
 
-            #with dpg.node(label="OnCollision", pos=(400, 0)):
-            #    with dpg.node_attribute(label="Node A1", attribute_type=dpg.mvNode_Attr_Output):
-            #        ''
-
 
     def object(self):
         dpg.create_context()
