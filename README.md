@@ -1,8 +1,12 @@
 # Getting started
 ```
 chmod +x EngineX.sh
+```
+
+```
 ./EngineX.sh
 ```
+
 ```
 python3 hub
 ```
