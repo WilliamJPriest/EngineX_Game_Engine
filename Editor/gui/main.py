@@ -2,21 +2,17 @@ import dearpygui.dearpygui as dpg
 from Editor.gui.vs import *
 from Editor.gui.error_window import *
 from ursina.prefabs.first_person_controller import FirstPersonController
+from Editor.obj import *
 
-class Main:
+class Main(Render):
     def __init__(self, obj):
         self.obj = obj
 
-        
-    objects = {}
-
     def Create_obj(self):
         def create():
-            self.objects[dpg.get_value('name')] = {'model':dpg.get_value('model'), 'color':dpg.get_value('color'),'pos':tuple(int(i) for i in dpg.get_value('pos'))} 
-            self.obj.add_obj(Model=dpg.get_value('model'), 
-            Position=tuple(int(i) for i in dpg.get_value('pos')), 
-            Color=dpg.get_value('color'))
-            
+            self.add(Model=dpg.get_value('model'),  Name=dpg.get_value('name'),Position=tuple(int(i) for i in dpg.get_value('pos')), Color=dpg.get_value('color'))
+            self.render_all()
+
         with dpg.window(label="Create object", height=500, width=500, pos=(100,0)):
             dpg.add_text("")
             dpg.add_input_text(label="Name", default_value="New Object", tag='name')
@@ -38,16 +34,13 @@ class Main:
                     dpg.add_text("")
     def Run(self):
         try:
-            self.position = self.cam.position
-            self.rotation = self.cam.rotation
-            self.scale = self.cam.scale
+            self.cam.position = self.position
         except Exception as e:
             Error_Window_Tk().err_win_tk(e)
-        
 
     def add_camera(self):
-        self.cam = self.obj.add_obj(Model='camera/model/scene.gltf', 
-            Position=(5, 2, 5))
+        self.cam = self.add(Model='camera/model/scene.gltf',  Name='Cam 1',Position=(5, 2, 5), Color='white')
+        self.render_all()
 
     def btns(self):
         dpg.add_button(label='run', callback=self.Run, width=200, height=55)
@@ -62,7 +55,6 @@ class Main:
             dpg.add_text("")
             self.btns()
 
-    
         dpg.create_viewport(title='EngineX', width=800, height=800)
         dpg.setup_dearpygui()
         dpg.show_viewport()
