@@ -5,7 +5,7 @@ from Editor.twod import TwoD
 win = Ursina()
 
 class Window:
-    def Win(self):
+    def Win3D(self):
         for x in range(20):
             for z in range(20):
                 Entity(
