@@ -1,7 +1,5 @@
 from tkinter import *
 
-
-
 class IDE:
     def __init__(self, title, **kwargs):
         self.title = title
