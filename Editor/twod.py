@@ -6,7 +6,6 @@ import threading
 from Editor.gui.error_window import *
 from ursina.prefabs.first_person_controller import FirstPersonController
 
-
 class TwoD(Button, Main, Error_Window):
     def __init__(self):
         super().__init__(model='', scale=0)
