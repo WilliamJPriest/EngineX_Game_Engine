@@ -45,8 +45,7 @@ class Object(Error_Window, Add_obj):
             f.write(d)
             f.close()
         except Exception as e:
-            pass
-            #self.err_win(dpg, e)
+            self.err_win(dpg, e)
             
     def create_node(self, onclick=''):
         with dpg.node_editor(callback=self.link_callback, delink_callback=self.delink_callback):
