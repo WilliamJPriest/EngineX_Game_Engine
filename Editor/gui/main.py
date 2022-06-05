@@ -24,7 +24,7 @@ class Main(Render):
 
     def Objects(self):
         with dpg.window(label="Objects", height=500, width=200, pos=(100,0)):
-            for k, v in self.objects.items():
+            for k, v in self.objects().items():
                 dpg.add_text(k)
                 model = v['model']
                 color = v['color']
