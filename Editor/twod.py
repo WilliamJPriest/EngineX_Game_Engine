@@ -19,17 +19,21 @@ class TwoD(Button, Main, Error_Window, obj.Render):
             run_main.start()
         if key == 'd':
             camera.rotation_y += 5
+            
         if key == 'a':
             camera.rotation_y -= 5
+            
         if key == 's':
             camera.rotation_x += 5
+            
         if key == 'w':
             camera.rotation_x -= 5
+            
         if key == 'r':
             self.Run()
 
         if key == 'l':
-            ''
+            self.render_all()
 
         if key == '3':
             FirstPersonController()
