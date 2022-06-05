@@ -32,7 +32,7 @@ class Object(Error_Window, Add_obj):
         try:
             self.model = dpg.get_value('model')
             self.position = to_tuple(dpg.get_value('position'))
-            self.color = ''#tuple(dpg.get_value('Color'))
+            self.color = ''#to_tuple(dpg.get_value('Color'))
             self.scale = to_tuple(dpg.get_value('scale'))
             f = open('objects.txt', 'r').read()
             y = json.loads(f)
