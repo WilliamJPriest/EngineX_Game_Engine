@@ -6,8 +6,9 @@ import threading
 from Editor.gui.error_window import *
 from ursina.prefabs.first_person_controller import FirstPersonController
 
-class TwoD(Button, Main, Error_Window):
+class TwoD(Button, Main, Error_Window, obj.Render):
     def __init__(self):
+        self.render_all()
         super().__init__(model='', scale=0)
         Main.__init__(self, obj)
 
@@ -26,6 +27,10 @@ class TwoD(Button, Main, Error_Window):
             camera.rotation_x -= 5
         if key == 'r':
             self.Run()
+
+        if key == 'l':
+            ''
+
         if key == '3':
             FirstPersonController()
         if key == '2':
