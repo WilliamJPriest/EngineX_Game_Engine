@@ -13,7 +13,7 @@ python3 hub
 ![Hub](https://user-images.githubusercontent.com/86805843/167671607-1f2969ae-b0c8-46fc-9cec-dd35509c84ef.png)
 
 
-# Add a model
+# Model
 
 ```
 press m
