@@ -1,7 +1,8 @@
 import dearpygui.dearpygui as dpg
 from Editor.gui.error_window import Error_Window
+from Editor.add_obj import  *
 
-class Object(Error_Window):
+class Object(Error_Window, Add_obj):
     key = None
     def link_callback(self, sender, app_data):
         dpg.add_node_link(app_data[0], app_data[1], parent=sender)
@@ -31,10 +32,21 @@ class Object(Error_Window):
         try:
             self.model = dpg.get_value('model')
             self.position = to_tuple(dpg.get_value('position'))
-            self.color = tuple(dpg.get_value('Color'))
+            self.color = ''#tuple(dpg.get_value('Color'))
             self.scale = to_tuple(dpg.get_value('scale'))
+            f = open('objects.txt', 'r').read()
+            y = json.loads(f)
+            print(y[self.Name])
+            y[self.Name]['model'] = dpg.get_value('model')
+            y[self.Name]['pos'] = to_tuple(dpg.get_value('position'))
+            y[self.Name]['color'] = ''
+            d = json.dumps(y)
+            f = open("objects.txt", "w")
+            f.write(d)
+            f.close()
         except Exception as e:
-            self.err_win(dpg, e)
+            pass
+            #self.err_win(dpg, e)
             
     def create_node(self, onclick=''):
         with dpg.node_editor(callback=self.link_callback, delink_callback=self.delink_callback):
