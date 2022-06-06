@@ -5,10 +5,11 @@ from Editor.add_obj import *
 
 
 class render_obj(Button, Object, Keys):
-    def __init__(self, Origin: float=0.6, Texture: str='', Position:tuple = (5, 2, 5), Name='',Model: str = 'cube', Color='red', **kwargs):
+    def __init__(self,Scale=(1, 1, 1), Origin: float=0.6,Texture: str='', Position:tuple = (5, 2, 5), Name='',Model: str = 'cube', Color='red', **kwargs):
         self.Name = Name
         super().__init__(
             parent=scene,
+            scale=Scale,
             position=Position,
             model=Model,
             origin = Origin,
@@ -28,5 +29,5 @@ class render_obj(Button, Object, Keys):
 class Render(Add_obj):
     def render_all(self):
         for k, v in self.objects().items():
-            render_obj(Name=k, Model=v['model'], Color=v['color'], Position=v['pos'])
+            render_obj(Name=k, Model=v['model'], Color=v['color'], Position=v['pos'], Scale=v['scale'], Origin=v['origin'])
     
