@@ -1,4 +1,4 @@
-# Getting started
+# First Steps
 ```
 chmod +x EngineX.sh
 ```
@@ -13,10 +13,10 @@ python3 hub
 ![Hub](https://user-images.githubusercontent.com/86805843/167671607-1f2969ae-b0c8-46fc-9cec-dd35509c84ef.png)
 
 
-# Add a model
+# Model
 
 ```
-press m and click on new object
+press m
 ```
 
 ![EngineX](https://user-images.githubusercontent.com/86805843/167671654-bf48c1e8-d42e-49d6-86ce-d312320c86f1.png)
@@ -35,7 +35,7 @@ press m and click on new object
 
 ![EngineX_vs](https://user-images.githubusercontent.com/86805843/168089482-b7997aeb-c324-4d96-a955-c9541f285bd2.png)
 ```
-click on the object and press 1
+press 1
 ```
 ![EngineX_vs1](https://user-images.githubusercontent.com/86805843/168089548-b109d168-b7cc-4293-93b7-90645fafbb8f.png)
 ![EngineX_vs2](https://user-images.githubusercontent.com/86805843/168089575-2364c41d-f43a-4397-8c3f-6240cc93546e.png)
