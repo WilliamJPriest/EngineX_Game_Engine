@@ -36,7 +36,6 @@ class Object(Error_Window, Add_obj):
             self.scale = to_tuple(dpg.get_value('scale'))
             f = open('objects.txt', 'r').read()
             y = json.loads(f)
-            print(y[self.Name])
             y[self.Name]['model'] = dpg.get_value('model')
             y[self.Name]['pos'] = to_tuple(dpg.get_value('position'))
             y[self.Name]['color'] = ''
@@ -45,8 +44,7 @@ class Object(Error_Window, Add_obj):
             f.write(d)
             f.close()
         except Exception as e:
-            pass
-            #self.err_win(dpg, e)
+            self.err_win(dpg, e)
             
     def create_node(self, onclick=''):
         with dpg.node_editor(callback=self.link_callback, delink_callback=self.delink_callback):
