@@ -10,7 +10,7 @@ class Main(Render):
 
     def Create_obj(self):
         def create():
-            self.add(Model=dpg.get_value('model'),  Name=dpg.get_value('name'),Position=tuple(int(i) for i in dpg.get_value('pos')), Color=dpg.get_value('color'))
+            self.add(Model=dpg.get_value('model'),  Scale=tuple(int(i) for i in dpg.get_value('scale')),Name=dpg.get_value('name'),Position=tuple(int(i) for i in dpg.get_value('pos')), Color=dpg.get_value('color'))
             self.render_all()
 
         with dpg.window(label="Create object", height=500, width=500, pos=(100,0)):
@@ -18,6 +18,7 @@ class Main(Render):
             dpg.add_input_text(label="Name", default_value="New Object", tag='name')
             dpg.add_input_text(label="Model", default_value="cube", tag='model')
             dpg.add_input_text(label="Position", default_value="525", tag='pos')
+            dpg.add_input_text(label="Scale", default_value="111", tag='scale')
             dpg.add_input_text(label="Color", tag='color')
             dpg.add_text("")
             dpg.add_button(label="Create", callback=create)
@@ -34,7 +35,7 @@ class Main(Render):
                     dpg.add_text("")
     def Run(self):
         try:
-            self.cam.position = self.position
+            self.cam.parent = camera.ui
         except Exception as e:
             Error_Window_Tk().err_win_tk(e)
 
