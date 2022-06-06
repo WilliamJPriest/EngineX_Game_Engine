@@ -1,4 +1,5 @@
 import  json
+from re import S
 from Editor.gui.error_window import *
 
 
@@ -16,13 +17,14 @@ class Add_obj:
             self.add(Model='cube', Position=(5, 2, 5), Name='Cube')
             self.objects()
 
-    def add(self, Model, Position:tuple, Color='', Name='', **kwargs):
+    def add(self, Model, Position:tuple, Color='', Name='', Origin='', Scale:tuple=(1, 1, 1), **kwargs):
         objects[Name] = {
         'model':Model, 
         'color':Color,
+        'scale':Scale,
+        "origin":Origin,
         'pos':tuple(int(i) for i in Position)
         }
-        
         y = json.dumps(objects)
         f = open("objects.txt", "w")
         f.write(y)
