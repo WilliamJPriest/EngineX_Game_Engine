@@ -34,13 +34,13 @@ class Object(Error_Window, Add_obj):
             self.position = to_tuple(dpg.get_value('position'))
             self.color = ''#to_tuple(dpg.get_value('Color'))
             self.scale = to_tuple(dpg.get_value('scale'))
-            f = open('objects.txt', 'r').read()
+            f = open('objects.json', 'r').read()
             y = json.loads(f)
             y[self.Name]['model'] = dpg.get_value('model')
             y[self.Name]['pos'] = to_tuple(dpg.get_value('position'))
             y[self.Name]['color'] = ''
             d = json.dumps(y)
-            f = open("objects.txt", "w")
+            f = open("objects.json", "w")
             f.write(d)
             f.close()
         except Exception as e:
