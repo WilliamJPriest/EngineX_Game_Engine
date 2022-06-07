@@ -9,7 +9,7 @@ class Add_obj:
 
     def objects(self) -> dict:
         try:
-            f = open('objects.txt', 'r').read()
+            f = open('objects.json', 'r').read()
             y = json.loads(f)
             return y
         except Exception as e:
@@ -26,7 +26,7 @@ class Add_obj:
         'pos':tuple(int(i) for i in Position)
         }
         y = json.dumps(objects)
-        f = open("objects.txt", "w")
+        f = open("objects.json", "w")
         f.write(y)
         f.close()
 
