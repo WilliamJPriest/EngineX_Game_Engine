@@ -1,6 +1,7 @@
 import dearpygui.dearpygui as dpg
 from Editor.gui.error_window import Error_Window
 from Editor.add_obj import  *
+from Editor.project import  *
 
 class Object(Error_Window, Add_obj):
     key = None
@@ -34,13 +35,14 @@ class Object(Error_Window, Add_obj):
             self.position = to_tuple(dpg.get_value('position'))
             self.color = ''#to_tuple(dpg.get_value('Color'))
             self.scale = to_tuple(dpg.get_value('scale'))
-            f = open('objects.json', 'r').read()
+            f = open(objectsFile, 'r').read()
             y = json.loads(f)
             y[self.Name]['model'] = dpg.get_value('model')
             y[self.Name]['pos'] = to_tuple(dpg.get_value('position'))
             y[self.Name]['color'] = ''
+            y[self.Name]['scale'] = to_tuple(dpg.get_value('scale'))
             d = json.dumps(y)
-            f = open("objects.json", "w")
+            f = open(objectsFile, "w")
             f.write(d)
             f.close()
         except Exception as e:
