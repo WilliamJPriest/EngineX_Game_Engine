@@ -1,6 +1,7 @@
 import  json
-from re import S
 from Editor.gui.error_window import *
+from Editor.project import *
+
 
 
 objects = {}
@@ -9,7 +10,7 @@ class Add_obj:
 
     def objects(self) -> dict:
         try:
-            f = open('objects.json', 'r').read()
+            f = open(objectsFile, 'r').read()
             y = json.loads(f)
             return y
         except Exception as e:
@@ -26,7 +27,7 @@ class Add_obj:
         'pos':tuple(int(i) for i in Position)
         }
         y = json.dumps(objects)
-        f = open("objects.json", "w")
+        f = open(objectsFile, "w")
         f.write(y)
         f.close()
 
