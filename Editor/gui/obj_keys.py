@@ -1,5 +1,6 @@
 import threading
 import json
+from Editor.project import *
 
 class Keys:
     def GUI_Keys(self, key):
@@ -16,11 +17,11 @@ class Keys:
             self.origin_y += 1
         if key == 'delete':
             
-            f = open('objects.json', 'r').read()
+            f = open(objectsFile, 'r').read()
             objects = json.loads(f)
             objects.pop(self.Name)
             d = json.dumps(objects)
-            f = open("objects.json", "w")
+            f = open(objectsFile, "w")
             f.write(d)
             f.close()
             self.disable()
@@ -58,14 +59,14 @@ class Keys:
             return tuple(lst)
 
         try:
-            f = open('objects.json', 'r').read()
+            f = open(objectsFile, 'r').read()
             objects = json.loads(f)
             object = objects[self.Name]
             object['pos'] = to_tuple(self.position)
             object['scale']= to_tuple(self.scale)
             object['origin'] = to_tuple(self.origin)
             d = json.dumps(objects)
-            f = open("objects.json", "w")
+            f = open(objectsFile, "w")
             f.write(d)
             f.close()
         except:
