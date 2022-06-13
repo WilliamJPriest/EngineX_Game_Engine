@@ -20,7 +20,6 @@ class Window:
         FirstPersonController()
 
     def Win2D(self):
-
         for x in range(20):
             for z in range(20):
                 Entity(
