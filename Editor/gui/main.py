@@ -1,6 +1,6 @@
 import dearpygui.dearpygui as dpg
 from Editor.gui.vs import *
-from Editor.gui.error_window import *
+from Editor.gui.error_windows import *
 from ursina.prefabs.first_person_controller import FirstPersonController
 from Editor.obj import *
 
