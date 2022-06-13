@@ -1,8 +1,6 @@
 import  json
-from Editor.gui.error_window import *
+from Editor.gui.error_windows import *
 from Editor.project import *
-
-
 
 objects = {}
 
