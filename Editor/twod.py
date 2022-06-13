@@ -3,7 +3,7 @@ import dearpygui.dearpygui as dpg
 from Editor import obj
 from Editor.gui.main import *
 import threading
-from Editor.gui.error_window import *
+from Editor.gui.error_windows import *
 from ursina.prefabs.first_person_controller import FirstPersonController
 
 class TwoD(Button, Main, Error_Window, obj.Render):
