@@ -1,5 +1,5 @@
 
 
-objectsFile = 'objects.json'
+objectsFile = './objects.json'
 
-on_clickFile = 'on_click.json'
+on_clickFile = './on_click.json'
