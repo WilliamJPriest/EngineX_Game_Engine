@@ -4,15 +4,35 @@ from Editor.add_obj import  *
 from Editor.project import  *
 
 class Object(Error_Window, Add_obj):
+    def add_to_OnClickFile(self):
+
+        Key = dpg.get_value('onclick')
+        changes = {'name':self.Name,'model':dpg.get_value('model'), 'pos':self.to_tuple(dpg.get_value('position')), 'scale':self.to_tuple(dpg.get_value('scale')),'color':''}
+        f = open(on_clickFile, 'r').read()
+        on_click = json.loads(f)
+        on_click[Key] = changes
+        y = json.dumps(on_click)
+        f = open(on_clickFile, "w")
+        f.write(y)
+        f.close()
+
+        
+
     key = None
+
+
     def link_callback(self, sender, app_data):
         dpg.add_node_link(app_data[0], app_data[1], parent=sender)
-        print(dpg.get_selected_nodes('ne'))
+        print(dpg.get_value('ne'))
+
         def run():
             if dpg.get_value('onclick'):
                 while self.key != 'q':
                     if self.key == dpg.get_value('onclick'):
                         self.change()
+
+
+        self.add_to_OnClickFile()
 
     def delink_callback(self, sender, app_data):
         dpg.delete_item(app_data)
@@ -20,9 +40,9 @@ class Object(Error_Window, Add_obj):
     def color_picker(self):
         with dpg.window(label="Color"):
             dpg.add_color_picker(tag='Color')
-    
-    def change(self):
-        def to_tuple(pos):
+
+
+    def to_tuple(self, pos):
             lst = []
             for i in pos:
                 try:
@@ -30,18 +50,19 @@ class Object(Error_Window, Add_obj):
                 except:
                     pass
             return tuple(lst)
-
+    
+    def change(self):
         try:
             self.model = dpg.get_value('model')
-            self.position = to_tuple(dpg.get_value('position'))
+            self.position = self.to_tuple(dpg.get_value('position'))
             self.color = ''#to_tuple(dpg.get_value('Color'))
-            self.scale = to_tuple(dpg.get_value('scale'))
+            self.scale = self.to_tuple(dpg.get_value('scale'))
             f = open(objectsFile, 'r').read()
             y = json.loads(f)
             y[self.Name]['model'] = dpg.get_value('model')
-            y[self.Name]['pos'] = to_tuple(dpg.get_value('position'))
+            y[self.Name]['pos'] = self.to_tuple(dpg.get_value('position'))
             y[self.Name]['color'] = ''
-            y[self.Name]['scale'] = to_tuple(dpg.get_value('scale'))
+            y[self.Name]['scale'] = self.to_tuple(dpg.get_value('scale'))
             d = json.dumps(y)
             f = open(objectsFile, "w")
             f.write(d)
@@ -49,10 +70,8 @@ class Object(Error_Window, Add_obj):
         except Exception as e:
             self.err_win(dpg, e)
 
-    def create_node():
-        ''
             
-    def create_node_vs(self, onclick=''):
+    def create_node(self, onclick=''):
         with dpg.node_editor(callback=self.link_callback, delink_callback=self.delink_callback, tag='ne'):
             
             with dpg.node(label=self.model):
@@ -74,27 +93,13 @@ class Object(Error_Window, Add_obj):
             
                         
     def run_vs(self):
-        import os, sys, inspect
-        from qtpy.QtWidgets import QApplication
-
-        sys.path.insert(0, os.path.join( os.path.dirname(__file__), "..", ".." ))
-
-        from nodeeditor.utils import loadStylesheet
-        from nodeeditor.node_editor_window import NodeEditorWindow
-
-
-
-
-        
-        app = QApplication(sys.argv)
-
-        wnd = NodeEditorWindow()
-        wnd.nodeeditor.addNodes()
-        module_path = os.path.dirname( inspect.getfile(wnd.__class__) )
-
-        loadStylesheet( os.path.join( module_path, 'qss/nodestyle.qss') )
-
-        sys.exit(app.exec_())
+        dpg.create_context()
+        self.object()
+        dpg.create_viewport(title='EngineX', width=1000, height=500)
+        dpg.setup_dearpygui()
+        dpg.show_viewport()
+        dpg.start_dearpygui()
+        dpg.destroy_context()
 
 
 
