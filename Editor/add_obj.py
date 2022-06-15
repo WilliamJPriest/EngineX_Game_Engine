@@ -29,13 +29,6 @@ class Add_obj:
         f.write(y)
         f.close()
 
-    def test(self):
-        self.add(Model='cube', Position=(5, 2, 5), Name='test')
-        self.add(Model='cube 1', Position=(5, 2, 5), Name='test 1')
-        for k, v in self.objects().items():
-            print(v['model'])
-
-
 
     
 
