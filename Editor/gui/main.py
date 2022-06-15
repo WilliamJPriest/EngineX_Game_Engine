@@ -33,11 +33,15 @@ class Main(Render):
                 with dpg.popup(dpg.last_item(), mousebutton=dpg.mvMouseButton_Left, modal=True, tag="modal_id"):
                     dpg.add_text(f'model: {model} \ncolor: {color}\npos: {pos}')
                     dpg.add_text("")
-    def Run(self):
-        try:
-            self.cam.parent = camera.ui
-        except Exception as e:
-            Error_Window_Tk().err_win_tk(e)
+
+
+    def OnClick(self, key, running):
+        f = open(on_clickFile, 'r').read()
+        on_click = json.loads(f)
+
+        for k, v in on_click.items():
+            if key == k:
+                render_obj(running=running,Name=v['name'], Model=v['model'], Color=v['color'], Position=v['pos'], Scale=v['scale'])
 
     def add_camera(self):
         self.cam = self.add(Model='camera/model/scene.gltf',  Name='Cam 1',Position=(5, 2, 5), Color='white')
