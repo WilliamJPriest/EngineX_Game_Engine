@@ -38,17 +38,17 @@ class Main(Render):
     def OnClick(self, key, running):
         f = open(on_clickFile, 'r').read()
         on_click = json.loads(f)
-
+        self.render_all(running=running)
         for k, v in on_click.items():
             if key == k:
-                render_obj(running=running,Name=v['name'], Model=v['model'], Color=v['color'], Position=v['pos'], Scale=v['scale'])
+                render_obj_play(running=running,Name=v['name'], Model=v['model'], Color=v['color'], Position=v['pos'], Scale=v['scale'])
 
     def add_camera(self):
         self.cam = self.add(Model='camera/model/scene.gltf',  Name='Cam 1',Position=(5, 2, 5), Color='white')
         self.render_all()
 
     def btns(self):
-        dpg.add_button(label='run', callback=self.Run, width=200, height=55)
+        #dpg.add_button(label='run', callback=self.Run, width=200, height=55)
         dpg.add_button(label='new object', callback=self.Create_obj, width=200, height=55)
         dpg.add_button(label='camera', callback=self.add_camera, width=200, height=55)
         dpg.add_button(label='objects', callback=self.Objects, width=200, height=55)
@@ -60,7 +60,7 @@ class Main(Render):
             dpg.add_text("")
             self.btns()
 
-        dpg.create_viewport(title='EngineX', width=800, height=800)
+        dpg.create_viewport(title='EngineX', width=600, height=600)
         dpg.setup_dearpygui()
         dpg.show_viewport()
         dpg.start_dearpygui()
