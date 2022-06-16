@@ -7,6 +7,17 @@ class Keys:
         if key == '1':
             run_vs = threading.Thread(target=self.run_vs)
             run_vs.start()
+
+
+    def delete(self, file):
+        f = open(file, 'r').read()
+        objects = json.loads(f)
+        objects.pop(self.Name)
+        d = json.dumps(objects)
+        f = open(file, "w")
+        f.write(d)
+        f.close()
+        self.disable()
         
     def Mov_Keys(self, key):
         if key == 'g':
@@ -16,15 +27,7 @@ class Keys:
         if key == 'b':
             self.origin_y += 1
         if key == 'delete':
-            
-            f = open(objectsFile, 'r').read()
-            objects = json.loads(f)
-            objects.pop(self.Name)
-            d = json.dumps(objects)
-            f = open(objectsFile, "w")
-            f.write(d)
-            f.close()
-            self.disable()
+            self.delete(objectsFile)
            
         if key == 'y':
             self.origin_y -= 1
