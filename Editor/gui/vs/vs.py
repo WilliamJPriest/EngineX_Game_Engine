@@ -15,9 +15,6 @@ class Object(Error_Window, Add_obj):
         f = open(on_clickFile, "w")
         f.write(y)
         f.close()
-
-        
-
     key = None
 
 
@@ -30,8 +27,6 @@ class Object(Error_Window, Add_obj):
                 while self.key != 'q':
                     if self.key == dpg.get_value('onclick'):
                         self.change()
-
-
         self.add_to_OnClickFile()
 
     def delink_callback(self, sender, app_data):
@@ -72,11 +67,10 @@ class Object(Error_Window, Add_obj):
 
             
     def create_node(self, onclick=''):
-        with dpg.node_editor(callback=self.link_callback, delink_callback=self.delink_callback, tag='ne'):
-            
-            with dpg.node(label=self.model):
+        with dpg.node_editor(callback=self.link_callback, delink_callback=self.delink_callback, tag='ne'):            
+            with dpg.node(label=str(self.Model).upper()):
                 with dpg.node_attribute(label="Node A4"):
-                    dpg.add_input_text(label="Model", width=150, default_value=self.model, tag='model')
+                    dpg.add_input_text(label="Model", width=150, default_value=self.Model, tag='model')
                     dpg.add_button(label='Color', callback=self.color_picker)
                     dpg.add_input_text(label='Position', width=150, default_value=self.position, tag='position')
                     dpg.add_input_text(label='Scale', width=150, default_value=self.scale, tag='scale')
@@ -88,7 +82,7 @@ class Object(Error_Window, Add_obj):
 
     def object(self):
         dpg.create_context()
-        with dpg.window(label=f"Object {self.model}", width=1000, height=500):
+        with dpg.window(label=f"{self.Name}", width=1000, height=500):
             self.create_node()
             
                         
