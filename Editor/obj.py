@@ -5,10 +5,11 @@ from Editor.add_obj import *
 
 
 class render_obj(Button, Object, Keys):
-    def __init__(self, running, Scale=(1, 1, 1), Origin: float=0.6,Texture: str='', Position:tuple = (5, 2, 5), Name='',Model: str = 'cube', Color='red', **kwargs):
+    def __init__(self, running, Gravity=False, Scale=(1, 1, 1), Origin: float=0.6,Texture: str='', Position:tuple = (5, 2, 5), Name='',Model: str = 'cube', Color='red', **kwargs):
         self.Name = Name
         self.running = running
         self.Model = Model
+        self.Gravity = Gravity
         super().__init__(
             parent=scene,
             scale=Scale,
@@ -18,6 +19,11 @@ class render_obj(Button, Object, Keys):
             texture=Texture,
             color = Color
             )
+
+
+    def update(self):
+        if self.Gravity:
+            self.origin_y += 0.1
 
     def input(self, key):
         if self.hovered:
