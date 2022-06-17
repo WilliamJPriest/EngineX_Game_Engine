@@ -16,7 +16,7 @@ class Window:
                     position= (x, 0, z), 
                     origin_y=0.5, 
                     parent=scene,
-                    texture = 'white_cube')
+                    texture = 'white_cube',CollisionBox=True)
         FirstPersonController()
 
     def Win2D(self):
