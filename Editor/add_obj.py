@@ -5,7 +5,6 @@ from Editor.project import *
 objects = {}
 
 class Add_obj:
-
     def objects(self) -> dict:
         try:
             f = open(objectsFile, 'r').read()
@@ -17,6 +16,7 @@ class Add_obj:
             self.objects()
 
     def add(self, Model, Position:tuple, Color='', Name='', Origin='', Scale:tuple=(1, 1, 1), **kwargs):
+
         objects[Name] = {
         'model':Model, 
         'color':Color,
@@ -24,6 +24,7 @@ class Add_obj:
         "origin":Origin,
         'pos':tuple(int(i) for i in Position)
         }
+
         y = json.dumps(objects)
         f = open(objectsFile, "w")
         f.write(y)
