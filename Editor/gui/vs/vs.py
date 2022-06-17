@@ -21,12 +21,6 @@ class Object(Error_Window, Add_obj):
     def link_callback(self, sender, app_data):
         dpg.add_node_link(app_data[0], app_data[1], parent=sender)
         print(dpg.get_value('ne'))
-
-        def run():
-            if dpg.get_value('onclick'):
-                while self.key != 'q':
-                    if self.key == dpg.get_value('onclick'):
-                        self.change()
         self.add_to_OnClickFile()
 
     def delink_callback(self, sender, app_data):
@@ -52,6 +46,7 @@ class Object(Error_Window, Add_obj):
             self.position = self.to_tuple(dpg.get_value('position'))
             self.color = ''#to_tuple(dpg.get_value('Color'))
             self.scale = self.to_tuple(dpg.get_value('scale'))
+            self.Gravity = dpg.get_value('gravity')
             f = open(objectsFile, 'r').read()
             y = json.loads(f)
             y[self.Name]['model'] = dpg.get_value('model')
@@ -66,7 +61,7 @@ class Object(Error_Window, Add_obj):
             self.err_win(dpg, e)
 
             
-    def create_node(self, onclick=''):
+    def create_node(self, onclick='up'):
         with dpg.node_editor(callback=self.link_callback, delink_callback=self.delink_callback, tag='ne'):            
             with dpg.node(label=str(self.Model).upper()):
                 with dpg.node_attribute(label="Node A4"):
@@ -74,6 +69,8 @@ class Object(Error_Window, Add_obj):
                     dpg.add_button(label='Color', callback=self.color_picker)
                     dpg.add_input_text(label='Position', width=150, default_value=self.position, tag='position')
                     dpg.add_input_text(label='Scale', width=150, default_value=self.scale, tag='scale')
+                    dpg.add_checkbox(label='Gravity', tag='gravity')
+                    dpg.add_viewport_drawlist()
                     dpg.add_button(label='Change', callback=self.change)
             with dpg.node(label="OnClick", pos=(300, 0)):
                 with dpg.node_attribute(label="Node A1", attribute_type=dpg.mvNode_Attr_Output):
