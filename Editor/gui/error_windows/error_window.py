@@ -1,5 +1,3 @@
-
-
 class Error_Window:
     def err_win(self, dpg, err):
         with dpg.window(label="Error"):
