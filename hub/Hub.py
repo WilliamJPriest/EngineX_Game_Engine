@@ -47,8 +47,8 @@ class Ui_MainWindow(object):
         self.label_2.setText(_translate("MainWindow", "EngineX"))
 
     def on_click(self):
-            os.system(f"python3 NewProject {self.lineEdit.text()}")
-            os.system(f'python3 {self.lineEdit.text()}.py')
+        os.system(f"python3 NewProject {self.lineEdit.text()}")
+        os.system(f'python3 {self.lineEdit.text()}.py')
 
 
 
