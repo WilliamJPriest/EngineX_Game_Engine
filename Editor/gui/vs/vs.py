@@ -5,7 +5,6 @@ from Editor.project import  *
 
 class Object(Error_Window, Add_obj):
     def add_to_OnClickFile(self):
-
         Key = dpg.get_value('onclick')
         changes = {'name':self.Name,'model':dpg.get_value('model'), 'pos':self.to_tuple(dpg.get_value('position')), 'scale':self.to_tuple(dpg.get_value('scale')),'color':''}
         f = open(on_clickFile, 'r').read()
@@ -44,7 +43,7 @@ class Object(Error_Window, Add_obj):
         try:
             self.model = dpg.get_value('model')
             self.position = self.to_tuple(dpg.get_value('position'))
-            self.color = ''#to_tuple(dpg.get_value('Color'))
+            self.color = ''#self.to_tuple(dpg.get_value('Color'))
             self.scale = self.to_tuple(dpg.get_value('scale'))
             self.Gravity = dpg.get_value('gravity')
             f = open(objectsFile, 'r').read()
