@@ -1,4 +1,4 @@
-from Editor import obj, Editor_window
+from Editor import Editor_window
 
 e = Editor_window.Window()
 e.Win2D()
