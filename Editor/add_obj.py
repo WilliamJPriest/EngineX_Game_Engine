@@ -16,7 +16,6 @@ class Add_obj:
             self.objects()
 
     def add(self, Model, Position:tuple, Color='', Name='', Origin='', Scale:tuple=(1, 1, 1), **kwargs):
-
         objects[Name] = {
         'model':Model, 
         'color':Color,
