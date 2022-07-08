@@ -4,7 +4,6 @@ def Newproject(project):
 
 
 if __name__ == '__main__':
-    from subprocess import check_output
     import os
     import sys
 
