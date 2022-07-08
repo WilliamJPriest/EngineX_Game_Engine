@@ -1,6 +1,5 @@
 from ursina import *
 from ursina.prefabs.first_person_controller import FirstPersonController
-from ursina.prefabs.platformer_controller_2d import PlatformerController2d
 from Editor.twod import TwoD
 win = Ursina()
 
