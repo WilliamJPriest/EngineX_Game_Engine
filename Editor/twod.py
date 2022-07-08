@@ -48,6 +48,5 @@ class TwoD(Button, Main, Error_Window, obj.Render):
 
             if key == '2':
                 FirstPersonController().disable()
-
         else:
             self.OnClick(key)
