@@ -14,6 +14,7 @@ class Object(Error_Window, Add_obj):
         f = open(on_clickFile, "w")
         f.write(y)
         f.close()
+        
     key = None
 
 
