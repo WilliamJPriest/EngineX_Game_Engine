@@ -3,10 +3,10 @@
 objectsFile = './objects.json'
 
 # project python file
-projectFile = 'A10.py'
+projectFile = 'test.py'
 
 # play
-Play = True
+Play = False
 
 # history file
 historyFile = 'history.txt'
