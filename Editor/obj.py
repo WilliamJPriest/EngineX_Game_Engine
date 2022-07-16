@@ -6,7 +6,7 @@ from .project import *
 
 
 class render_obj(Button, Object, Keys):
-    def __init__(self, running, Gravity:bool=False, Scale=(1, 1, 1), Origin: float=0.6,Texture: str='', Position:tuple = (5, 2, 5), Name='',Model: str = 'cube', Color='red', **kwargs):
+    def __init__(self,  Gravity:bool=False, Scale=(1, 1, 1), Origin: float=0.6,Texture: str='', Position:tuple = (5, 2, 5), Name='',Model: str = 'cube', Color='red', **kwargs):
         self.Name = Name
         self.Model = Model
         self.Gravity = Gravity
