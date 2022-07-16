@@ -1,5 +1,4 @@
 from ursina import *
-import dearpygui.dearpygui as dpg
 from Editor import obj
 from Editor.gui.main import *
 import threading
