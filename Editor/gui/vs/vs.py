@@ -53,6 +53,8 @@ class Object(Error_Window, Add_obj):
             y[self.Name]['pos'] = self.to_tuple(dpg.get_value('position'))
             y[self.Name]['color'] = ''
             y[self.Name]['scale'] = self.to_tuple(dpg.get_value('scale'))
+            if self.Gravity:
+                y[self.Name]['gravity'] = True
             d = json.dumps(y)
             f = open(objectsFile, "w")
             f.write(d)
