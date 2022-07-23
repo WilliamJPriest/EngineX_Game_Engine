@@ -3,7 +3,7 @@
 objectsFile = './objects.json'
 
 # project python file
-projectFile = 'test.py'
+projectFile = 'demo.py'
 
 # play
 Play = False
