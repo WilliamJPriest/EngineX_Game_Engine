@@ -34,13 +34,6 @@ class render_obj(Button, Object, Keys):
                 self.Mov_Keys(key)
                 self.GUI_Keys(key)
 
-
-class render_obj_play(render_obj):
-    def input(self, key):
-        if self.hovered:
-            b = Text(scale=1, text=f'{self.get_position()} {self.scale}')
-            b.fade_out()
-            self.key = key
             
 
 
