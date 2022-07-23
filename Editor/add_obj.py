@@ -15,11 +15,12 @@ class Add_obj:
             self.add(Model='cube', Position=(5, 2, 5), Name='Cube')
             self.objects()
 
-    def add(self, Model, Position:tuple, Color='', Name='', Origin='', Scale:tuple=(1, 1, 1), **kwargs):
+    def add(self, Model, Position:tuple, Gravity:bool=False, Color:str='', Name='', Origin='', Scale:tuple=(1, 1, 1), **kwargs):
         objects[Name] = {
         'model':Model, 
         'color':Color,
         'scale':Scale,
+        'gravity':Gravity,
         "origin":Origin,
         'pos':tuple(int(i) for i in Position)
         }
