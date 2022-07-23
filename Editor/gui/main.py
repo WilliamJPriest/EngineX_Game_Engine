@@ -40,7 +40,7 @@ class Main(Render):
         self.render_all()
         for k, v in on_click.items():
             if key == k:
-                render_obj_play(Name=v['name'], Model=v['model'], Color=v['color'], Position=v['pos'], Scale=v['scale'])
+                render_obj(Name=v['name'], Model=v['model'], Color=v['color'], Position=v['pos'], Scale=v['scale'])
 
     def add_camera(self):
         self.cam = self.add(Model='camera/model/scene.gltf',  Name='Cam 1',Position=(5, 2, 5), Color='white')
