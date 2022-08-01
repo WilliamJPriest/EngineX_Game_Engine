@@ -47,7 +47,6 @@ class Main(Render):
         self.render_all()
 
     def btns(self):
-        #dpg.add_button(label='run', callback=self.Run, width=200, height=55)
         dpg.add_button(label='new object', callback=self.Create_obj, width=200, height=55)
         dpg.add_button(label='camera', callback=self.add_camera, width=200, height=55)
         dpg.add_button(label='objects', callback=self.Objects, width=200, height=55)
