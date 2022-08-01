@@ -1,3 +1,4 @@
+from cProfile import label
 import dearpygui.dearpygui as dpg
 from Editor.gui.error_windows import Error_Window
 from Editor.add_obj import  *
@@ -78,10 +79,10 @@ class Object(Error_Window, Add_obj):
                 with dpg.node_attribute(label="Node A1", attribute_type=dpg.mvNode_Attr_Output):
                     dpg.add_input_text(label="onClick", width=50, default_value=onclick, tag='onclick')
 
-
     def object(self):
         dpg.create_context()
         with dpg.window(label=f"{self.Name}", width=1000, height=500):
+            dpg.add_button(label='create On Click', parent='ne')
             self.create_node()
             
                         
