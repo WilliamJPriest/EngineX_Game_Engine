@@ -2,6 +2,7 @@ import dearpygui.dearpygui as dpg
 from Editor.gui.vs import *
 from Editor.gui.error_windows import *
 from Editor.obj import *
+from Editor import project
 
 class Main(Render):
     def __init__(self, obj):
@@ -46,7 +47,11 @@ class Main(Render):
         self.cam = self.add(Model='camera/model/scene.gltf',  Name='Cam 1',Position=(5, 2, 5), Color='white')
         self.render_all()
 
+    def build(self):
+        os.system(f"pyinstaller {project.projectFile} --onefile")
+
     def btns(self):
+        dpg.add_button(label='build', callback=self.build, width=200, height=55)
         dpg.add_button(label='new object', callback=self.Create_obj, width=200, height=55)
         dpg.add_button(label='camera', callback=self.add_camera, width=200, height=55)
         dpg.add_button(label='objects', callback=self.Objects, width=200, height=55)
