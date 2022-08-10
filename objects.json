@@ -1,1 +1,1 @@
-{"Cam 1": {"model": "camera/model/scene.gltf", "color": "white", "scale": [1, 1, 1], "gravity": false, "origin": "", "pos": [5, 2, 5]}}
+{"New Object": {"model": "sphere", "color": "", "scale": [3, 1, 1, 1], "gravity": false, "origin": [0.0, 0.0, 0.0], "pos": [3, 3, 2, 3]}}
