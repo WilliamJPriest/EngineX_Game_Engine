@@ -18,7 +18,6 @@ class TwoD(Button, Main, Error_Window, obj.Render):
 
         if not Play:
             if key == 'm':
-                
                 run_main = threading.Thread(target=self.run_main)
                 run_main.start()
                 
