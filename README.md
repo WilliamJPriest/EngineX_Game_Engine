@@ -33,10 +33,8 @@ press m
 
 # Visual Scripting
 
-![EngineX_vs](https://user-images.githubusercontent.com/86805843/168089482-b7997aeb-c324-4d96-a955-c9541f285bd2.png)
 ```
 press 1
 ```
-![EngineX_vs1](https://user-images.githubusercontent.com/86805843/168089548-b109d168-b7cc-4293-93b7-90645fafbb8f.png)
 ![EngineX_VS](https://user-images.githubusercontent.com/86805843/184382962-81681551-19f4-44ff-96d6-d0f0c1e2ff76.png)
 
