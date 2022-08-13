@@ -5,6 +5,10 @@ git clone https://github.com/EngineX3D/EngineX
 ```
 
 ```
+cd EngineX
+```
+
+```
 chmod +x EngineX.sh
 ```
 
