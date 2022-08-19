@@ -10,6 +10,7 @@ class TwoD(Button, Main, Error_Window, obj.Render):
         self.render_all()
         super().__init__(model='', scale=0)
         Main.__init__(self, obj)
+        
 
     key = None
     
