@@ -77,7 +77,7 @@ class Object(Error_Window, Add_obj):
             
             for k, v in y.items():
                 print(k, v)
-                with dpg.node(label=f'{self.Name}-{k}'.upper()  , tag = k):
+                with dpg.node(label=f'{self.Name}-{k}'.upper(), tag = k):
                     with dpg.node_attribute(label=f"Node A4"):
                         dpg.add_input_text(label=f"Name", width=150, default_value=self.Name + '-up', tag=f'name {k}')
                         dpg.add_input_text(label=f"Model", width=150, default_value=self.Model, tag=f'model {k}')
