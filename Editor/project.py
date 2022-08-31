@@ -1,9 +1,10 @@
+import sys
 
 # objects json file
 objectsFile = './objects.json'
 
-# project python file
-projectFile = './demo.py'
+# project python file e.g. './demo.py' 
+projectFile = sys.argv[0]
 
 # play
 Play = False
