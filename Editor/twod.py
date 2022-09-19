@@ -10,6 +10,7 @@ class TwoD(Button, Main, Error_Window, obj.Render):
         self.render_all()
         super().__init__(model='', scale=0)
         Main.__init__(self, obj)
+        
 
     key = None
     
@@ -18,7 +19,6 @@ class TwoD(Button, Main, Error_Window, obj.Render):
 
         if not Play:
             if key == 'm':
-                
                 run_main = threading.Thread(target=self.run_main)
                 run_main.start()
                 
