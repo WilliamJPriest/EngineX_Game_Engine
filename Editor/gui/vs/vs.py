@@ -1,4 +1,3 @@
-from cProfile import label
 import dearpygui.dearpygui as dpg
 from Editor.gui.error_windows import Error_Window
 from Editor.add_obj import  *
@@ -6,15 +5,20 @@ from Editor.project import  *
 
 class Object(Error_Window, Add_obj):
     def add_to_OnClickFile(self):
-        Key = dpg.get_value('onclick')
-        changes = {'name':self.Name,'model':dpg.get_value('model'), 'pos':self.to_tuple(dpg.get_value('position')), 'scale':self.to_tuple(dpg.get_value('scale')),'color':''}
         f = open(on_clickFile, 'r').read()
-        on_click = json.loads(f)
-        on_click[Key] = changes
-        y = json.dumps(on_click)
-        f = open(on_clickFile, "w")
-        f.write(y)
-        f.close()
+        y = json.loads(f)
+        pos_l, pos_r = 300, 0
+        
+        for k, v in y.items():
+            Key = dpg.get_value(f'onclick {k}')
+            changes = {'name':self.Name,'model':dpg.get_value(f'model{k}'), 'gravity':False,'pos':self.to_tuple(dpg.get_value(f'position {k}')), 'scale':self.to_tuple(dpg.get_value(f'scale {k}')), 'color':''}
+            f = open(on_clickFile, 'r').read()
+            on_click = json.loads(f)
+            on_click[Key] = changes
+            y = json.dumps(on_click)
+            f = open(on_clickFile, "w")
+            f.write(y)
+            f.close()
         
     key = None
 
@@ -42,8 +46,9 @@ class Object(Error_Window, Add_obj):
             return tuple(lst)
     
     def change(self):
+        
         try:
-            self.model = dpg.get_value('model')
+            self.model = dpg.get_value(f'model')
             self.position = self.to_tuple(dpg.get_value('position'))
             self.color = ''#self.to_tuple(dpg.get_value('Color'))
             self.scale = self.to_tuple(dpg.get_value('scale'))
@@ -64,27 +69,34 @@ class Object(Error_Window, Add_obj):
             self.err_win(dpg, e)
 
             
-    def create_node(self, onclick='up'):
-        with dpg.node_editor(callback=self.link_callback, delink_callback=self.delink_callback, tag='ne'):            
-            with dpg.node(label=str(self.Model).upper()):
-                with dpg.node_attribute(label="Node A4"):
-                    dpg.add_input_text(label="Model", width=150, default_value=self.Model, tag='model')
-                    dpg.add_button(label='Color', callback=self.color_picker)
-                    dpg.add_input_text(label='Position', width=150, tag='position')
-                    dpg.add_input_text(label='replace model', width=150, tag='replace')
-                    dpg.add_input_text(label='add model', width=150, default_value=self.position, tag='add')
-                    dpg.add_input_text(label='Scale', width=150, default_value=self.scale, tag='scale')
-                    dpg.add_checkbox(label='Gravity', tag='gravity')
-                    dpg.add_viewport_drawlist()
-                    dpg.add_button(label='Change', callback=self.change)
-            with dpg.node(label="OnClick", pos=(300, 0)):
-                with dpg.node_attribute(label="Node A1", attribute_type=dpg.mvNode_Attr_Output):
-                    dpg.add_input_text(label="onClick", width=50, default_value=onclick, tag='onclick')
+    def create_node(self):
+        with dpg.node_editor(callback=self.link_callback, delink_callback=self.delink_callback, tag='ne'):
+            f = open(on_clickFile, 'r').read()
+            y = json.loads(f)
+            pos_l, pos_r = 300, 0
+            
+            for k, v in y.items():
+                print(k, v)
+                with dpg.node(label=f'{self.Name}-{k}'.upper(), tag = k):
+                    with dpg.node_attribute(label=f"Node A4"):
+                        dpg.add_input_text(label=f"Name", width=150, default_value=self.Name + '-up', tag=f'name {k}')
+                        dpg.add_input_text(label=f"Model", width=150, default_value=self.Model, tag=f'model {k}')
+                        dpg.add_button(label=f'Color', callback=self.color_picker)
+                        dpg.add_input_text(label=f'Position', width=150, default_value=self.position, tag=f'position {k}')
+                        dpg.add_input_text(label=f'Scale', width=150, default_value=self.scale, tag=f'scale {k}')
+                        dpg.add_checkbox(label=f'Gravity', tag=f'gravity {k}')
+                        dpg.add_viewport_drawlist()
+                        dpg.add_button(label='Change', callback=self.change)
+                with dpg.node(label="OnClick", pos=(pos_l, pos_r)):
+                    with dpg.node_attribute(label="Node A1", attribute_type=dpg.mvNode_Attr_Output):
+                        dpg.add_input_text(label="onClick", width=50, default_value=k, tag=f'onclick {k}')
+
+                pos_l += 300
+                pos_r + 100
 
     def object(self):
         dpg.create_context()
         with dpg.window(label=f"{self.Name}", width=1000, height=500):
-            dpg.add_button(label='create On Click', parent='ne')
             self.create_node()
             
                         
