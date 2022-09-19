@@ -35,8 +35,6 @@ class render_obj(Button, Object, Keys):
                 self.GUI_Keys(key)
 
             
-
-
 class Render(Add_obj):
     def render_all(self, **kwargs):
         for k, v in self.objects().items():
