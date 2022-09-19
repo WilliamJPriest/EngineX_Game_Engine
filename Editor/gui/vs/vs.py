@@ -70,7 +70,9 @@ class Object(Error_Window, Add_obj):
                 with dpg.node_attribute(label="Node A4"):
                     dpg.add_input_text(label="Model", width=150, default_value=self.Model, tag='model')
                     dpg.add_button(label='Color', callback=self.color_picker)
-                    dpg.add_input_text(label='Position', width=150, default_value=self.position, tag='position')
+                    dpg.add_input_text(label='Position', width=150, tag='position')
+                    dpg.add_input_text(label='replace model', width=150, tag='replace')
+                    dpg.add_input_text(label='add model', width=150, default_value=self.position, tag='add')
                     dpg.add_input_text(label='Scale', width=150, default_value=self.scale, tag='scale')
                     dpg.add_checkbox(label='Gravity', tag='gravity')
                     dpg.add_viewport_drawlist()
