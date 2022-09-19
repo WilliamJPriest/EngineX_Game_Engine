@@ -1,5 +1,5 @@
-def Newproject(project):
-    os.system(f'cp demo.py {project}.py')
+def NewProjectLinux(project):
+    os.system(f'bash NewProject/new_project_linux.sh {project}')
 
 
 
@@ -7,4 +7,4 @@ if __name__ == '__main__':
     import os
     import sys
 
-    Newproject(sys.argv[1])
+    NewProjectLinux(sys.argv[1])
