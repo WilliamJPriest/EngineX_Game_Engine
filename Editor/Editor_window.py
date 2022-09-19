@@ -32,10 +32,3 @@ class Window:
                     texture = 'white_cube')
         TwoD()
         
-
-        
-
-
-
-
-
