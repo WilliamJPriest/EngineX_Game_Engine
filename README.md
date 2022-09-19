@@ -1,4 +1,15 @@
-# First Steps
+
+# ```First Steps```
+
+
+```
+git clone https://github.com/EngineX3D/EngineX
+```
+
+```
+cd EngineX
+```
+
 ```
 chmod +x EngineX.sh
 ```
@@ -13,7 +24,7 @@ python3 hub
 ![Hub](https://user-images.githubusercontent.com/86805843/167671607-1f2969ae-b0c8-46fc-9cec-dd35509c84ef.png)
 
 
-# Model
+# ```Add 3D model```
 
 ```
 press m
@@ -31,11 +42,10 @@ press m
 
 
 
-# Visual Scripting
+# ```Visual Scripting```
 
-![EngineX_vs](https://user-images.githubusercontent.com/86805843/168089482-b7997aeb-c324-4d96-a955-c9541f285bd2.png)
 ```
 press 1
 ```
-![EngineX_vs1](https://user-images.githubusercontent.com/86805843/168089548-b109d168-b7cc-4293-93b7-90645fafbb8f.png)
-![EngineX_vs2](https://user-images.githubusercontent.com/86805843/168089575-2364c41d-f43a-4397-8c3f-6240cc93546e.png)
+![EngineX_VS](https://user-images.githubusercontent.com/86805843/184382962-81681551-19f4-44ff-96d6-d0f0c1e2ff76.png)
+
