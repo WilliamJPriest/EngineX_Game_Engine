@@ -68,6 +68,8 @@ class Object(Error_Window, Add_obj):
         except Exception as e:
             self.err_win(dpg, e)
 
+
+
             
     def create_node(self):
         with dpg.node_editor(callback=self.link_callback, delink_callback=self.delink_callback, tag='ne'):
@@ -76,17 +78,26 @@ class Object(Error_Window, Add_obj):
             pos_l, pos_r = 300, 0
             
             for k, v in y.items():
-                print(k, v)
+                def del_():
+                    y.pop(k)
+                    d = json.dumps(y)
+                    f = open(on_clickFile, "w")
+                    f.write(d)
+                    f.close()
+
                 with dpg.node(label=f'{self.Name}-{k}'.upper(), tag = k):
                     with dpg.node_attribute(label=f"Node A4"):
                         dpg.add_input_text(label=f"Name", width=150, default_value=self.Name + '-up', tag=f'name {k}')
                         dpg.add_input_text(label=f"Model", width=150, default_value=self.Model, tag=f'model {k}')
                         dpg.add_button(label=f'Color', callback=self.color_picker)
                         dpg.add_input_text(label=f'Position', width=150, default_value=self.position, tag=f'position {k}')
+                        dpg.add_input_text(label=f'replace obj', width=150, tag=f'replace {k}')
+                        dpg.add_input_text(label=f'add obj', width=150, tag=f'add {k}')
                         dpg.add_input_text(label=f'Scale', width=150, default_value=self.scale, tag=f'scale {k}')
                         dpg.add_checkbox(label=f'Gravity', tag=f'gravity {k}')
                         dpg.add_viewport_drawlist()
-                        dpg.add_button(label='Change', callback=self.change)
+                        # dpg.add_button(label='Change', callback=self.change)
+                        dpg.add_button(label='del', callback=del_)
                 with dpg.node(label="OnClick", pos=(pos_l, pos_r)):
                     with dpg.node_attribute(label="Node A1", attribute_type=dpg.mvNode_Attr_Output):
                         dpg.add_input_text(label="onClick", width=50, default_value=k, tag=f'onclick {k}')
