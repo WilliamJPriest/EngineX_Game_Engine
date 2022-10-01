@@ -1,11 +1,19 @@
-import os, json, requests
+import os, json, requests, json
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+
+
 class Ui_MainWindow(object):
+    def auth(self, username, password):
+        x = requests.post('https://whispering-crag-05987.herokuapp.com/login', data={'username':username, 'password':password})
+        j = json.loads(x.text)
+        return j['success'] == True
+
     def login(self):
-        f = open('login.json', "r")
+        f = open('hub/login.json', "r")
         y = json.loads(f.read())
-        if not y['username'] or not y['password']:
+        # print(self.auth(y['username'], y['password']))
+        if not y['username'] or not y['password'] or not self.auth(y['username'], y['password']):
                 return False
 
         return True
@@ -44,7 +52,7 @@ class Ui_MainWindow(object):
         if not self.login():
                 self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
                 self.pushButton_2.setGeometry(QtCore.QRect(560, 30, 88, 34))
-                
+                self.pushButton_2.clicked.connect(lambda: self.onclick_login())
                 self.pushButton_2.setStyleSheet("::hover {\n"
         "color:white;\n"
         "}")
@@ -70,6 +78,12 @@ class Ui_MainWindow(object):
     def on_click(self):
         os.system(f"python3 NewProject {self.lineEdit.text()}")
         os.system(f'python3 {self.lineEdit.text()}.py')
+
+    def onclick_login(self):
+        os.system('python3 hub/login.py')
+        quit()
+        
+
 
 
 
