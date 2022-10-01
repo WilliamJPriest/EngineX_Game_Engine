@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from .hub import *
+from hub import *
 import sys
 
 
