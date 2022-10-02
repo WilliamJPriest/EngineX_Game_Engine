@@ -2,7 +2,6 @@ import os, json, requests, json
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-
 class Ui_MainWindow(object):
     def auth(self, username, password):
         x = requests.post('https://whispering-crag-05987.herokuapp.com/login', data={'username':username, 'password':password})
@@ -22,13 +21,14 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(676, 480)
         MainWindow.setStyleSheet("color: rgb(114, 159, 207);\n"
-"background-color:black;")
+        "background-color:black;")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(100, 110, 131, 31))
         self.label.setStyleSheet("color: white;")
         self.label.setObjectName("label")
+        
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(430, 190, 141, 41))
         self.pushButton.setStyleSheet("color: rgb(0, 0, 0);\n"
@@ -46,6 +46,7 @@ class Ui_MainWindow(object):
         self.label_2.setStyleSheet("font: 75 italic 30pt \"Ubuntu Condensed\";\n"
 "color: rgb(114, 159, 207);\n"
 "")
+        
         self.label_2.setObjectName("label_2")
 
 
@@ -57,6 +58,14 @@ class Ui_MainWindow(object):
         "color:white;\n"
         "}")
                 self.pushButton_2.setObjectName("pushButton_2")
+        else:
+            self.label_user = QtWidgets.QLabel(self.centralwidget)
+            self.label_user.setStyleSheet("::hover {\n"
+        "color:white;\n"
+        "}")
+            self.label_user.setGeometry(QtCore.QRect(560, 30, 88, 34))
+            self.label_user.setObjectName("label_user")
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -72,7 +81,11 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "New Project:"))
         self.pushButton.setText(_translate("MainWindow", "New Project"))
         self.label_2.setText(_translate("MainWindow", "EngineX"))
-        if not self.login(): self.pushButton_2.setText(_translate("MainWindow", "Login"))
+        f = open('hub/login.json', "r")
+        y = json.loads(f.read())
+        self.label_user.setText(_translate("MainWindow", y['username']))
+        if not self.login():
+                self.pushButton_2.setText(_translate("MainWindow", "Login"))
 
 
     def on_click(self):
