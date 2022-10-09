@@ -55,7 +55,7 @@ class Ui_MainWindow(object):
         if x.status_code == 200:
             d = {'username':username, 'password':password}
             j = json.dumps(d)
-            f = open('login.json', 'w')
+            f = open('hub/login.json', 'w')
             f.write(j)
             f.close()
             quit()
