@@ -58,6 +58,14 @@ class Ui_MainWindow(object):
         "color:white;\n"
         "}")
                 self.pushButton_2.setObjectName("pushButton_2")
+
+                self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
+                self.pushButton_3.setGeometry(QtCore.QRect(460, 30, 88, 34))
+                self.pushButton_3.clicked.connect(lambda: self.onclick_signup())
+                self.pushButton_3.setStyleSheet("::hover {\n"
+        "color:white;\n"
+        "}")
+                self.pushButton_3.setObjectName("pushButton_2")
         else:
             self.label_user = QtWidgets.QLabel(self.centralwidget)
             self.label_user.setStyleSheet("::hover {\n"
@@ -83,9 +91,12 @@ class Ui_MainWindow(object):
         self.label_2.setText(_translate("MainWindow", "EngineX"))
         f = open('hub/login.json', "r")
         y = json.loads(f.read())
-        self.label_user.setText(_translate("MainWindow", y['username']))
+        
         if not self.login():
                 self.pushButton_2.setText(_translate("MainWindow", "Login"))
+                self.pushButton_3.setText(_translate("MainWindow", "Sign up"))
+        else:
+            self.label_user.setText(_translate("MainWindow", y['username']))
 
 
     def on_click(self):
@@ -94,6 +105,10 @@ class Ui_MainWindow(object):
 
     def onclick_login(self):
         os.system('python3 hub/login.py')
+        quit()
+
+    def onclick_signup(self):
+        os.system('python3 hub/signup.py')
         quit()
         
 
