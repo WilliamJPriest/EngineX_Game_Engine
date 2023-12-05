@@ -1,7 +1,9 @@
+# EngineX - Your 3D and 2D Game Development Companion
+ user-friendly game engine designed to make 3D game development a breeze. Follow these simple steps to get started with your game development journey.
 
-# First Steps
+## Getting Started
 
-
+Clone the Repository and run EngineX
 ```
 git clone https://github.com/EngineX3D/EngineX
 ```
@@ -24,7 +26,7 @@ python3 hub
 ![Hub](https://user-images.githubusercontent.com/86805843/167671607-1f2969ae-b0c8-46fc-9cec-dd35509c84ef.png)
 
 
-# Add 3D model
+## Add 3D model
 
 ```
 press m
